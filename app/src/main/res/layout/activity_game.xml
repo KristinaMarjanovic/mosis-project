@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.GameActivity"
+    android:background="@drawable/bg_app_1">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/location_list_holder_cv"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_100sdp"
+        android:background="#D2E966"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_10sdp">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/map_holder_cv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/location_list_holder_cv"
+        app:layout_constraintTop_toBottomOf="@id/location_list_holder_cv"
+        app:layout_constraintEnd_toEndOf="@id/location_list_holder_cv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:background="#000000"
+        >
+
+        <!--ToDo add osmdroid map-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
