@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MosisHWApp</string>
     <string name="register_text">REGISTER</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="sign_in">SIGN IN</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
