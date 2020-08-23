@@ -29,7 +29,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/username_tv"
             android:gravity="center"
-            android:fontFamily="@font/segoe_ui_bold"/>
+            android:fontFamily="@font/segoe_ui_bold"
+            android:text="gonger"
+            />
 
 
         <TextView
@@ -54,7 +56,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/password_tv"
             android:gravity="center"
-            android:fontFamily="@font/segoe_ui_bold"/>
+            android:fontFamily="@font/segoe_ui_bold"
+            android:text="123456"/>
 
         <TextView
             android:id="@+id/repeat_password_tv"
@@ -78,7 +81,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/repeat_password_tv"
             android:gravity="center"
-            android:fontFamily="@font/segoe_ui_bold"/>
+            android:fontFamily="@font/segoe_ui_bold"
+            android:text="123456"/>
 
 
         <TextView
@@ -103,7 +107,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/email_tv"
             android:gravity="center"
-            android:fontFamily="@font/segoe_ui_bold"/>
+            android:fontFamily="@font/segoe_ui_bold"
+            android:text="marko.miljko@elfak.rs"/>
 
         <TextView
             android:id="@+id/confirm_sign_tv_btn"

@@ -96,7 +96,7 @@ public class SignUpFragment extends Fragment {
                 final String username = binding.usernameEt.getText().toString();
                 final String password = binding.passwordEt.getText().toString();
                 final String repeatedPassword = binding.repeatPasswordEt.getText().toString();
-                final String email = binding.emailEt.getText().toString();
+                final String email = binding.emailEt.getText().toString().trim();
                 DocumentReference documentReference = database.collection("users").document("users_details");
                 documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
@@ -106,26 +106,34 @@ public class SignUpFragment extends Fragment {
                             if (document.exists()) {
                                 String checkEmail;
                                 try {
-                                    checkEmail = document.get(username).toString();
-                                    //ToDo taken username
-                                } catch (NullPointerException ex) {
+                                    HashMap<String, String> data = (HashMap)document.getData();
+                                    checkEmail = data.get(username);
+                                    if(checkEmail != null)
+                                        Toast.makeText(getContext(), "Username is taken, please, take another.", Toast.LENGTH_LONG).show();
+                                    else
+                                    {
                                         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 user = firebaseAuth.getCurrentUser();
-                                                CollectionReference usersCollection = database.collection("users");
-                                                Map<String, String> userCredentials = new HashMap<>();
-                                                userCredentials.put(username, email);
-                                                usersCollection.document("users_details").set(userCredentials, SetOptions.merge());
-                                                startActivity(new Intent(getContext(), MainActivity.class));
-                                                //ToDo succesfull sign up
+                                                if(task.isSuccessful()) {
+                                                    CollectionReference usersCollection = database.collection("users");
+                                                    Map<String, String> userCredentials = new HashMap<>();
+                                                    userCredentials.put(username, email);
+                                                    usersCollection.document("users_details").set(userCredentials, SetOptions.merge());
+                                                    startActivity(new Intent(getContext(), MainActivity.class));
+                                                }
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                //ToDo email taken
+                                                Toast.makeText(getContext(), "Email is taken, please, take another.", Toast.LENGTH_LONG).show();
                                             }
                                         });
+                                    }
+
+                                } catch (NullPointerException ex) {
+
                                     }
                                 }
                             }
