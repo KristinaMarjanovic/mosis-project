@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.map_btn_tv:
                 startActivity(new Intent(MainActivity.this, GameActivity.class));
                 break;
+            case R.id.add_question_btn_tv:
+                startActivity(new Intent(MainActivity.this, AddQuestionActivity.class));
+                break;
 
 
         }
